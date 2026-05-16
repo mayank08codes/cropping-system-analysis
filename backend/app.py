@@ -1644,12 +1644,9 @@ def internal_error(error):
 # INITIALIZATION
 # ============================================
 
-import os
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
-    # Load models
     load_models()
+    port = int(os.environ.get("PORT", 5000))
     
     print("\n" + "="*50)
     print("🚀 AgroAI Backend Server Starting...")
@@ -1659,6 +1656,5 @@ if __name__ == '__main__':
     print(f"⚙️ Flask Debug: {os.getenv('FLASK_DEBUG', 'False')}")
     print("="*50 + "\n")
     
-    # Run server
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0", port=port)
 
